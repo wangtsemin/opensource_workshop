@@ -35,4 +35,3 @@ If you want to bring your laptop, it is useful to install the following software
     * [this as well](http://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).
 
 The program language that we use, is python which we will use with the ipython or Jupyter notebook interface. You can install these things separately, but it is easier to install everything together. The best way to do this is to use the [anaconda distribution](https://www.continuum.io/downloads). Make sure to install python 2.7 (not 3.0). See the [quantitative economics website](http://quant-econ.net/py/getting_started.html) on how to install anaconda.
-Regards,
