@@ -4,7 +4,7 @@ program of open source workshop at Tilburg University
 On the 18th and 23rd of May we are organizing two open source workshops. The planning is as follows:
 
 * May 18, 14:15-16:30: Ties and Jan give an introduction to GitHub, Python and the Jupyter notebook
-* May 23, 13:45-16:30: Ties teaches Python hands-on. In this session we will tackle some common empirical use-cases with Python. Main topics to be covered include: data handling and cleaning, processing large amounts of files, extracting textual information (“text mining”), extracting information from web-pages (“web scraping”), and creating (interactive) data visualizations.
+* May 23, 12:45-15:30: Ties teaches Python hands-on. In this session we will tackle some common empirical use-cases with Python. Main topics to be covered include: data handling and cleaning, processing large amounts of files, extracting textual information (“text mining”), extracting information from web-pages (“web scraping”), and creating (interactive) data visualizations.
 
 **Note that the rooms that were originally advertised will be changed**
 
