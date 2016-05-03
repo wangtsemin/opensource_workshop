@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Ties and Jan" />
+  <title>Open Source Workshop</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" media="print" href="reveal.js/css/print/pdf.css" />
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Open Source Workshop</h1>
+    <h2 class="author">Ties and Jan</h2>
+    <h3 class="date">May 18th, 2016</h3>
+</section>
+
+<section><section id="introduction" class="titleslide slide level1"><h1>Introduction</h1></section><section id="whats-the-plan" class="slide level2">
+<h1>what's the plan?</h1>
+<ul>
+<li><p>We give short introductions to</p>
+<ul>
+<li>Git</li>
+<li>Github</li>
+<li>Python</li>
+<li>Jupyter notebook</li>
+</ul></li>
+<li><p>and then we will have fun with a notebook</p></li>
+</ul>
+</section><section id="underlying-idea" class="slide level2">
+<h1>underlying idea</h1>
+<ul>
+<li><p>reproducible research:</p>
+<ul>
+<li>write code that is understandable (also to yourself)</li>
+<li>publish it in a way that is easily accessible</li>
+</ul></li>
+<li><p>students can make assignments in this way:</p>
+<ul>
+<li>combine their explanations and their code</li>
+<li>post assignments so that you can easily grade them</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="git-and-github" class="titleslide slide level1"><h1>Git and Github</h1></section><section id="git" class="slide level2">
+<h1>git</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/git.png" alt="Git" /><figcaption>Git</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<ul>
+<li><p>git is a &quot;versioning system&quot;</p>
+<ul>
+<li>stop calling files &quot;paper_v1_2016_a_March.tex&quot;</li>
+<li>never lose work by overwriting a previous version</li>
+<li>easily see what you (or your co-author) changed in the last version</li>
+<li>this you can do locally (no github needed)</li>
+</ul></li>
+</ul>
+</section><section id="github" class="slide level2">
+<h1>github</h1>
+<ul>
+<li><p>Github offers two extras:</p>
+<ul>
+<li>backup your files &quot;in the cloud&quot;</li>
+<li>Github pages (<code>gh-pages</code>): special branch that allows you to publish html files</li>
+<li>difference between ??? and ???</li>
+</ul></li>
+<li>additional extras: students put homework on github and you can edit/grade</li>
+<li><p>issues page</p>
+<ul>
+<li>team of teachers can respond to questions</li>
+<li>same question needs to be answered only once</li>
+</ul></li>
+</ul>
+</section><section id="workflow" class="slide level2">
+<h1>workflow</h1>
+<ul>
+<li>go to github and register</li>
+<li>then create a repository on-line; e.g. https://github.com/janboone/opensource_workshop</li>
+<li>there are lots of tutorials on how to do this</li>
+<li><p>then at the command line:</p>
+<ul>
+<li><code>git clone https://github.com/janboone/opensource_workshop</code></li>
+<li><code>cd opensource_workshop</code></li>
+<li>create new files, change existing files etc.</li>
+<li>when you are done</li>
+<li><code>git add .</code> adds all the files in the directory</li>
+<li><code>git commit -m &quot;say something about what you added&quot;</code></li>
+<li><code>git push</code> changes files at github.com to the latest version</li>
+<li>if you change something again, go through <code>git add</code>, <code>git commit</code> and <code>git push</code></li>
+</ul></li>
+</ul>
+</section><section id="branches" class="slide level2">
+<h1>branches</h1>
+<ul>
+<li>git allows you to have different versions of your work (say, paper)</li>
+<li>useful for PhD students to have a branch <code>supervisor</code> that you can delete after your defense</li>
+<li>main branch is called <code>master</code></li>
+<li>on github there is a special branch <code>gh-pages</code> that publishes html</li>
+</ul>
+</section></section>
+<section><section id="python" class="titleslide slide level1"><h1>Python</h1></section><section id="programming" class="slide level2">
+<h1>programming</h1>
+<ul>
+<li>what is programming?</li>
+<li>advantage python: write readable code!</li>
+<li><p>What do we use python for?</p>
+<ul>
+<li>solving models</li>
+<li>data manipulation</li>
+<li>making interactive graphs (plotly)</li>
+</ul></li>
+</ul>
+</section><section class="slide level2">
+
+<iframe src="https://plot.ly/~janboone/204.embed"
+        height="800" width="100%"
+        scrolling="no" seamless="seamless"
+        frameBorder="0">
+</iframe>
+
+</section><section class="slide level2">
+
+<pre><code>* sending (lots of) emails
+* scraping websites</code></pre>
+</section><section id="easy-to-read" class="slide level2">
+<h1>easy to read</h1>
+<ul>
+<li><p>python has a number of 'tricks' that make it easy to read:</p>
+<ul>
+<li>spacing to indicate commands that belong together</li>
+<li>iterate over 'anything'; <code>for firm in ['google', 'apple', 'facebook']</code></li>
+<li><code>output['apple'] = 5000</code></li>
+<li><code>[5*x for x in [0,1,2,3]]</code> creates vector <code>[0, 5, 10, 15]</code></li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="jupyter" class="titleslide slide level1"><h1>Jupyter</h1></section><section id="notebook" class="slide level2">
+<h1>notebook</h1>
+<ul>
+<li>notebook is useful ..</li>
+</ul>
+<!--
+
+How to turn this markdown file into a presentation:
+
+pandoc -s --mathjax --slide-level 2  -t revealjs presentation.md -V theme=solarized -o presentation.html
+
+pandoc --slide-level 2 --toc --toc-depth=1 -t beamer presentation.md -V theme:Montpellier -o presentation.pdf
+
+
+
+
+new slide:
+
+------------
+
+
+-->
+
+
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'solarized', // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+  </body>
+</html>

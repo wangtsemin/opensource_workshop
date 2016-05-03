@@ -19,18 +19,6 @@ what's the plan?
 
 * and then we will have fun with a notebook
 
-underlying idea
----------------
-
-* reproducible research:
-
-    * write code that is understandable (also to yourself)
-    * publish it in a way that is easily accessible
-
-* students can make assignments in this way:
-
-    * combine their explanations and their code
-    * post assignments so that you can easily grade them
 
 Git and Github
 ===================
@@ -107,35 +95,10 @@ programming
     * solving models
     * data manipulation
     * making interactive graphs (plotly)
-
-
------------
-
-<iframe src="https://plot.ly/~janboone/204.embed"
-        height="800" width="100%"
-        scrolling="no" seamless="seamless"
-        frameBorder="0">
-</iframe>
-
------------
-
-
 	* sending (lots of) emails
 	* scraping websites
+	* 
 
-
-
-
-
-easy to read
-------------
-
-* python has a number of 'tricks' that make it easy to read:
-
-    * spacing to indicate commands that belong together
-    * iterate over 'anything'; `for firm in ['google', 'apple', 'facebook']`
-    * `output['apple'] = 5000`
-    * `[5*x for x in [0,1,2,3]]` creates vector `[0, 5, 10, 15]`
 
 
 Jupyter
@@ -144,7 +107,7 @@ Jupyter
 notebook
 --------
 
-* notebook is useful ..
+* 
 
 
 
