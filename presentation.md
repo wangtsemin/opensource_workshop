@@ -59,7 +59,7 @@ github
 
     * backup your files "in the cloud"
     * Github pages (`gh-pages`): special branch that allows you to publish html files
-	* difference between ??? and ???
+	* difference between [this page](https://github.com/janboone/opensource_workshop/blob/gh-pages/presentation.html) and [this one](http://janboone.github.io/opensource_workshop/presentation)
 
 * additional extras: students put homework on github and you can edit/grade
 * issues page
