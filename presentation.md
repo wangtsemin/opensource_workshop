@@ -25,12 +25,16 @@ underlying idea
 * reproducible research:
 
     * write code that is understandable (also to yourself)
+    * markdown for typesetting, latex for equations etc.
     * publish it in a way that is easily accessible
+
+* at this [python conference](https://www.youtube.com/watch?v=oP9Qcjq8UVI), they use an AER paper to explain why this is important
 
 * students can make assignments in this way:
 
     * combine their explanations and their code
     * post assignments so that you can easily grade them
+
 
 Git and Github
 ===================
@@ -46,7 +50,7 @@ git
 
 * git is a "versioning system"
 
-    * stop calling files "paper_v1_2016_a_March.tex"
+    * stop calling your files "paper_v1_2016_a_March.tex"
     * never lose work by overwriting a previous version
 	* easily see what you (or your co-author) changed in the last version
 	* this you can do locally (no github needed)
@@ -61,11 +65,13 @@ github
     * Github pages (`gh-pages`): special branch that allows you to publish html files
 	* difference between [this page](https://github.com/janboone/opensource_workshop/blob/gh-pages/presentation.html) and [this one](http://janboone.github.io/opensource_workshop/presentation)
 
-* additional extras: students put homework on github and you can edit/grade
-* issues page
+* additional extras:
 
-    * team of teachers can respond to questions
-    * same question needs to be answered only once
+    * students put homework on github and you can edit/grade
+    * issues page
+
+        * team of teachers can respond to questions
+        * same question needs to be answered only once
 
 workflow
 --------
@@ -91,7 +97,11 @@ branches
 * useful for PhD students to have a branch `supervisor` that you can delete after your defense
 * main branch is called `master`
 * on github there is a special branch `gh-pages` that publishes html
+* want to know more?
 
+    * http://gitimmersion.com/
+    * https://www.codecademy.com/learn/learn-git
+    * https://git-scm.com/book/en/v2
 
 
 Python
@@ -119,9 +129,10 @@ programming
 
 -----------
 
+* What do we use python for?
 
-	* sending (lots of) emails
-	* scraping websites
+    * sending (lots of) emails
+    * scraping websites
 
 
 
@@ -137,6 +148,12 @@ easy to read
     * `output['apple'] = 5000`
     * `[5*x for x in [0,1,2,3]]` creates vector `[0, 5, 10, 15]`
 
+* want to know more?
+
+    * https://automatetheboringstuff.com/
+    * http://quant-econ.net/
+    * [other links](http://www.cs.colostate.edu/~anderson/cs545/index.html/doku.php?id=useful_links)
+
 
 Jupyter
 ==========
@@ -144,7 +161,10 @@ Jupyter
 notebook
 --------
 
-* notebook is useful ..
+* notebook combines code and readable text
+* you can run cell by cell (shift-enter) or the whole notebook
+* include figures in the notebook
+* notebooks can be used for R (and other languages) as well
 
 
 
