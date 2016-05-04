@@ -8,10 +8,19 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
-    <style type="text/css">code{white-space: pre;}</style>
-    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
-  <link rel="stylesheet" media="print" href="reveal.js/css/print/pdf.css" />
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'reveal.js/css/print/pdf.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+  </script>
   <!--[if lt IE 9]>
   <script src="reveal.js/lib/js/html5shiv.js"></script>
   <![endif]-->
@@ -126,93 +135,224 @@
 <section><section id="python" class="titleslide slide level1"><h1>Python</h1></section><section id="programming" class="slide level2">
 <h1>programming</h1>
 <ul>
-<li>what is programming?</li>
-<li>advantage python: write readable code!</li>
-<li><p>What do we use python for?</p>
+<li>Programming? --&gt; instruct a computer to do something</li>
+<li>How?
 <ul>
-<li>solving models</li>
-<li>data manipulation</li>
-<li>making interactive graphs (plotly)</li>
+<li>Formulate your instruction in a language that the computer can understand</li>
 </ul></li>
 </ul>
-</section><section class="slide level2">
-
-<iframe src="https://plot.ly/~janboone/204.embed"
-        height="800" width="100%"
-        scrolling="no" seamless="seamless"
-        frameBorder="0">
-</iframe>
-
-</section><section class="slide level2">
-
+</section><section id="which-language" class="slide level2">
+<h1>Which language?</h1>
+<figure>
+<img src="http://www.codingdojo.com/blog/wp-content/uploads/Programming-Languages-for-2016_graph.jpg" alt="Language" /><figcaption>Language</figcaption>
+</figure>
+</section><section id="why-python" class="slide level2">
+<h1>Why Python?</h1>
 <ul>
-<li><p>What do we use python for?</p>
+<li>From the ground up build to be:
 <ul>
-<li>sending (lots of) emails</li>
-<li>scraping websites</li>
+<li>easy to learn</li>
+<li>efficient to use (&quot;programming time is more valuable than computer time&quot;)</li>
+<li>readable for humans</li>
 </ul></li>
+<li>Very rich and constantly growing eco-system of tools for data science<br />
+<strong>But --&gt; it is still a general purpose language with near-unlimited possibilities!</strong></li>
+<li>The origin of the Jupyter (IPython) Notebook</li>
 </ul>
-</section><section id="easy-to-read" class="slide level2">
-<h1>easy to read</h1>
+</section><section id="what-can-we-use-python-for" class="slide level2">
+<h1>What can we use Python for?</h1>
 <ul>
-<li><p>python has a number of 'tricks' that make it easy to read:</p>
+<li>Solving models and performing numerical calculations</li>
+<li>Data processing (cleaning, wrangling, etc.)</li>
+<li>Process (large amounts of) files (deal with &quot;big data&quot;)</li>
+<li>Extract information from web-pages (web-crawling)</li>
+<li>Extract textual information (text mining)</li>
+<li>Machine learning applications</li>
+<li>Create (interactive) graphs</li>
+<li><strong>And many many other applications!</strong></li>
+</ul>
+</section><section id="python-is-easy" class="slide level2">
+<h1>Python is easy?!:</h1>
+<pre><code>numbers = [11, 5, 20, 6] 
+response = &#39;The following number is too big:&#39;
+
+for i in numbers:
+    if i &gt; 10:
+        print(response)
+        print(i)</code></pre>
+<p>Can you read what the above code would do?</p>
+</section><section id="how-does-python-execute-code" class="slide level2">
+<h1>How does Python execute code?</h1>
+<p>Python executes code using what is called an interpreter --&gt; <code>the Python interpreter</code> <img src="https://dl.dropboxusercontent.com/u/1265025/python_tut/illustration_1.png" alt="Illustration_1" /></p>
+<p>The Python interpreter goes chronologically through the code and tells the computer line-by-line what to do.</p>
+</section><section id="how-can-you-run-python-code" class="slide level2">
+<h1>How can you run Python code?</h1>
+<p>How do we send our code to the Python interpreter?</p>
+<ol type="1">
+<li><p>Save the code in a <code>.py</code> file and execute it using the console with <code>python example.py</code> --&gt; Prepare the code in a text-editor and send all the code to the interpreter at once</p></li>
+<li><p>Use the interactive Python (IPython) console by typing in console: <code>ipython</code> or <code>python</code> --&gt; Send Python code per line to the interpret and get an immediate response (hence <em>interactive</em>)</p></li>
+<li><p>Use the Jupyter Notebook as an intermediary in your browser --&gt; Send Python code per line but use a web-application instead of the command line</p></li>
+</ol>
+</section><section id="python-2-or-python-3" class="slide level2">
+<h1>Python 2 or Python 3?!</h1>
+<p><strong>Python 2.7:</strong> older version that only receives maintenance updates<br />
+<strong>Python 3.5:</strong> newest version that receives all the new cool features</p>
+<p>90% of the code will run fine regardless of the version, but Python 3 introduced some changes that are not backwards compatible. For example:</p>
+<pre><code>print &#39;Hello, world!&#39;  #This only works in Python 2.7
+print(&#39;Hello, world!&#39;) #This works in both Python 2.7 and Python 3</code></pre>
+<p><strong>Which version to use? --&gt; hotly debated topic</strong></p>
+<p>My personal advice:</p>
+<blockquote>
+<p>Use Python 3.5 if you can unless you need to rely on prior code that is only available in Python 2.7 It is relatively easy to install both Python 2.7 and Python 3.5 on one computer</p>
+</blockquote>
+</section><section id="the-python-eco-system-modules-and-packages" class="slide level2">
+<h1>The Python eco-system: modules and packages</h1>
+<p>What is a module or package? --&gt; essentially a <code>.py</code> file (<em>module</em>) or a collection of <code>.py</code> files (<em>package</em>) Python modules/packages are pieces of Python code that you can <code>import</code> and use in your own code.</p>
+<p><strong>Two types of modules/packages:</strong></p>
+<ol type="1">
+<li>Build-in modules --&gt; always included with any installation of Python</li>
+<li>Third-party modules/packages --&gt; made available on the internet by people like you and me!<br />
+--&gt; The Python Package Index (PyPI) currently hosts around 80,000 packages!</li>
+</ol>
+<p><strong>Example:</strong></p>
+<pre><code>import os            # Standard library
+import pandas as pd  # Third-party</code></pre>
+</section><section id="the-python-eco-system-modules-and-packages-1" class="slide level2">
+<h1>The Python eco-system: modules and packages</h1>
+<p><strong>How to install third-party modules/packages?</strong></p>
+<p>Use <code>pip</code> to install packages that are hosted on the Python Package Index</p>
+<p>Distributions like <code>Anaconda</code> and <code>Enthought Canopy</code> are awesome because they automatically install Python bundled with the most used packages for data science.</p>
+<p>Using a distribution saves you from having to install all the main-stream packages manually!</p>
+</section><section id="want-to-know-more" class="slide level2">
+<h1>Want to know more?</h1>
 <ul>
-<li>spacing to indicate commands that belong together</li>
-<li>iterate over 'anything'; <code>for firm in ['google', 'apple', 'facebook']</code></li>
-<li><code>output['apple'] = 5000</code></li>
-<li><code>[5*x for x in [0,1,2,3]]</code> creates vector <code>[0, 5, 10, 15]</code></li>
-</ul></li>
-<li><p>want to know more?</p>
-<ul>
-<li>https://automatetheboringstuff.com/</li>
-<li>http://quant-econ.net/</li>
+<li><a href="https://automatetheboringstuff.com/">Automate the boring stuff</a></li>
+<li><a href="http://quant-econ.net/">Quant-econ.net</a></li>
 <li><a href="http://www.cs.colostate.edu/~anderson/cs545/index.html/doku.php?id=useful_links">other links</a></li>
-</ul></li>
 </ul>
 </section></section>
-<section><section id="jupyter" class="titleslide slide level1"><h1>Jupyter</h1></section><section id="notebook" class="slide level2">
-<h1>notebook</h1>
+<section><section id="jupyter" class="titleslide slide level1"><h1>Jupyter</h1></section><section id="what-is-the-jupyter-notebook" class="slide level2">
+<h1>What is the Jupyter Notebook?</h1>
+<p>An open-source web application that allows people to create and share documents that contain live code, equations, visualizations, and explanatory text.</p>
+<p>In other words, the Jupyter Notebook provides a programming environment that makes it easy to document your reasoning and explain your code in a human-readable and shareable fashion.</p>
+</section><section id="example" class="slide level2">
+<h1>Example</h1>
+<figure>
+<img src="https://dl.dropboxusercontent.com/u/1265025/python_tut/illustration_2.png" alt="" />
+</figure>
+</section><section id="combine-programs-and-programming-languages" class="slide level2">
+<h1>Combine programs and programming languages</h1>
+<p>The Jupyter Notebook is aimed to be language agnostic so it supports a wide variety of programs and programming languages. But there is more: you can also combine programs/languages within one notebook!</p>
+<p>Python is supported by default (as it was originally developed for Python)</p>
 <ul>
-<li>notebook combines code and readable text</li>
-<li>you can run cell by cell (shift-enter) or the whole notebook</li>
-<li>include figures in the notebook</li>
-<li>notebooks can be used for R (and other languages) as well</li>
+<li><strong>R:</strong> rpy2 (<a href="http://rpy2.bitbucket.org/">link</a>)</li>
+<li><strong>Stata:</strong> IPystata (<a href="https://github.com/TiesdeKok/ipystata">link</a>)</li>
+<li><strong>SAS:</strong> SAS kernel (<a href="https://github.com/sassoftware/sas_kernel">link</a>)</li>
+<li><strong>Matlab:</strong> matlab_kernel (<a href="https://github.com/calysto/matlab_kernel">link</a>)</li>
 </ul>
-<!--
+</section><section id="how-does-it-work" class="slide level2">
+<h1>How does it work?</h1>
+<p>Only Python:</p>
+<figure>
+<img src="https://dl.dropboxusercontent.com/u/1265025/python_tut/illustration_3a.png" alt="" />
+</figure>
+<p>Python + R (for example):</p>
+<figure>
+<img src="https://dl.dropboxusercontent.com/u/1265025/python_tut/illustration_3.png" alt="" />
+</figure>
+</section><section id="start-a-notebook-server" class="slide level2">
+<h1>Start a Notebook server:</h1>
+<p>From the command line<br />
+(if you use Anaconda I would recommend using the <code>Anaconda Command Prompt</code>)</p>
+<ol type="1">
+<li><code>cd</code> to the desired starting directory<br />
+ --&gt; e.g. <code>cd &quot;C:\Stack\Work\Project_1&quot;</code></li>
+<li>Start the Jupyter Notebook server:<br />
+ --&gt; <code>jupyter notebook</code></li>
+</ol>
+<p>Use a third-party tool to store directories and start the Jupyter Notebook server (<a href="https://github.com/TiesdeKok/NotebookOpener">Notebook Opener</a>):</p>
+<figure>
+<img src="https://raw.githubusercontent.com/TiesdeKok/NotebookOpener/master/Images/example.png" alt="" />
+</figure>
+</section><section id="use-the-jupyter-notebook" class="slide level2">
+<h1>Use the Jupyter Notebook:</h1>
+<p>Two modes:</p>
+<p><code>command mode</code> --&gt; enable by pressing <code>esc</code><br />
+ <code>edit mode</code> --&gt; enable by pressing <code>enter</code></p>
+<p>Useful shortcuts:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><code>command mode</code></th>
+<th style="text-align: left;"><code>edit mode</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Y</code> : cell to code</td>
+<td style="text-align: left;"><code>Tab</code> : code completion or indent</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>M</code> : cell to markdown</td>
+<td style="text-align: left;"><code>Shift-Tab</code> : tooltip</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>A</code> : insert cell above</td>
+<td style="text-align: left;"><code>Ctrl-A</code> : select all</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>B</code> : insert cell below</td>
+<td style="text-align: left;"><code>Ctrl-Z</code> : undo</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>X</code>: cut selected cell</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><code>both modes</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Shift-Enter</code> : run cell, select below</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Ctrl-Enter</code> : run cell</td>
+</tr>
+</tbody>
+</table>
+</section><section id="new-slide" class="slide level2">
+<h1>new slide:</h1>
+<p>&lt;!--</p>
+<p>How to turn this markdown file into a presentation:</p>
+<p>pandoc -s --mathjax --slide-level 2 -t revealjs --highlight-style=zenburn presentation.md -V theme=solarized -o presentation.html</p>
+<p>pandoc --slide-level 2 --toc --toc-depth=1 -t beamer presentation.md -V theme:Montpellier -o presentation.pdf</p>
+<p>new slide:</p>
+</section><section class="slide level2">
 
-How to turn this markdown file into a presentation:
-
-pandoc -s --mathjax --slide-level 2  -t revealjs presentation.md -V theme=solarized -o presentation.html
-
-pandoc --slide-level 2 --toc --toc-depth=1 -t beamer presentation.md -V theme:Montpellier -o presentation.pdf
-
-
-
-
-new slide:
-
-------------
-
-
--->
-
-
+<p>--&gt;</p>
 </section></section>
     </div>
   </div>
 
+
   <script src="reveal.js/lib/js/head.min.js"></script>
-  <script src="reveal.js/js/reveal.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
 
   <script>
 
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
+        controls: true,         // Display controls in the bottom right corner
+        progress: true,         // Display a presentation progress bar
+        history: true,          // Push each slide change to the browser history
+        center: true,                       // Vertical centering of slides
+        maxScale: 1.5,                  // Bounds for smallest/largest possible content scale
+        slideNumber: false,                // Display the page number of the current slide
         theme: 'solarized', // available themes are in /css/theme
         transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
@@ -225,5 +365,5 @@ new slide:
 //          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 ]});
     </script>
-  </body>
+    </body>
 </html>
