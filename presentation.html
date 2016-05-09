@@ -8,19 +8,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">
-  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
-  <script>
-    if( window.location.search.match( /print-pdf/gi ) ) {
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = 'reveal.js/css/print/pdf.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    }
-  </script>
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" media="print" href="reveal.js/css/print/pdf.css" />
   <!--[if lt IE 9]>
   <script src="reveal.js/lib/js/html5shiv.js"></script>
   <![endif]-->
@@ -155,8 +146,7 @@
 <li>efficient to use (&quot;programming time is more valuable than computer time&quot;)</li>
 <li>readable for humans</li>
 </ul></li>
-<li>Very rich and constantly growing eco-system of tools for data science<br />
-<strong>But --&gt; it is still a general purpose language with near-unlimited possibilities!</strong></li>
+<li>Very rich and constantly growing eco-system of tools for data science<br /><strong>But --&gt; it is still a general purpose language with near-unlimited possibilities!</strong></li>
 <li>The origin of the Jupyter (IPython) Notebook</li>
 </ul>
 </section><section id="what-can-we-use-python-for" class="slide level2">
@@ -195,8 +185,7 @@ for i in numbers:
 </ol>
 </section><section id="python-2-or-python-3" class="slide level2">
 <h1>Python 2 or Python 3?!</h1>
-<p><strong>Python 2.7:</strong> older version that only receives maintenance updates<br />
-<strong>Python 3.5:</strong> newest version that receives all the new cool features</p>
+<p><strong>Python 2.7:</strong> older version that only receives maintenance updates<br /><strong>Python 3.5:</strong> newest version that receives all the new cool features</p>
 <p>90% of the code will run fine regardless of the version, but Python 3 introduced some changes that are not backwards compatible. For example:</p>
 <pre><code>print &#39;Hello, world!&#39;  #This only works in Python 2.7
 print(&#39;Hello, world!&#39;) #This works in both Python 2.7 and Python 3</code></pre>
@@ -211,8 +200,7 @@ print(&#39;Hello, world!&#39;) #This works in both Python 2.7 and Python 3</code
 <p><strong>Two types of modules/packages:</strong></p>
 <ol type="1">
 <li>Build-in modules --&gt; always included with any installation of Python</li>
-<li>Third-party modules/packages --&gt; made available on the internet by people like you and me!<br />
---&gt; The Python Package Index (PyPI) currently hosts around 80,000 packages!</li>
+<li>Third-party modules/packages --&gt; made available on the internet by people like you and me!<br /> --&gt; The Python Package Index (PyPI) currently hosts around 80,000 packages!</li>
 </ol>
 <p><strong>Example:</strong></p>
 <pre><code>import os            # Standard library
@@ -238,7 +226,7 @@ import pandas as pd  # Third-party</code></pre>
 </section><section id="example" class="slide level2">
 <h1>Example</h1>
 <figure>
-<img src="https://dl.dropboxusercontent.com/u/1265025/python_tut/illustration_2.png" alt="" />
+<img src="https://dl.dropboxusercontent.com/u/1265025/python_tut/illustration_2.png" />
 </figure>
 </section><section id="combine-programs-and-programming-languages" class="slide level2">
 <h1>Combine programs and programming languages</h1>
@@ -254,31 +242,27 @@ import pandas as pd  # Third-party</code></pre>
 <h1>How does it work?</h1>
 <p>Only Python:</p>
 <figure>
-<img src="https://dl.dropboxusercontent.com/u/1265025/python_tut/illustration_3a.png" alt="" />
+<img src="https://dl.dropboxusercontent.com/u/1265025/python_tut/illustration_3a.png" />
 </figure>
 <p>Python + R (for example):</p>
 <figure>
-<img src="https://dl.dropboxusercontent.com/u/1265025/python_tut/illustration_3.png" alt="" />
+<img src="https://dl.dropboxusercontent.com/u/1265025/python_tut/illustration_3.png" />
 </figure>
 </section><section id="start-a-notebook-server" class="slide level2">
 <h1>Start a Notebook server:</h1>
-<p>From the command line<br />
-(if you use Anaconda I would recommend using the <code>Anaconda Command Prompt</code>)</p>
+<p>From the command line<br />(if you use Anaconda I would recommend using the <code>Anaconda Command Prompt</code>)</p>
 <ol type="1">
-<li><code>cd</code> to the desired starting directory<br />
- --&gt; e.g. <code>cd &quot;C:\Stack\Work\Project_1&quot;</code></li>
-<li>Start the Jupyter Notebook server:<br />
- --&gt; <code>jupyter notebook</code></li>
+<li><code>cd</code> to the desired starting directory<br /> --&gt; e.g. <code>cd &quot;C:\Stack\Work\Project_1&quot;</code></li>
+<li>Start the Jupyter Notebook server:<br /> --&gt; <code>jupyter notebook</code></li>
 </ol>
 <p>Use a third-party tool to store directories and start the Jupyter Notebook server (<a href="https://github.com/TiesdeKok/NotebookOpener">Notebook Opener</a>):</p>
 <figure>
-<img src="https://raw.githubusercontent.com/TiesdeKok/NotebookOpener/master/Images/example.png" alt="" />
+<img src="https://raw.githubusercontent.com/TiesdeKok/NotebookOpener/master/Images/example.png" />
 </figure>
 </section><section id="use-the-jupyter-notebook" class="slide level2">
 <h1>Use the Jupyter Notebook:</h1>
 <p>Two modes:</p>
-<p><code>command mode</code> --&gt; enable by pressing <code>esc</code><br />
- <code>edit mode</code> --&gt; enable by pressing <code>enter</code></p>
+<p><code>command mode</code> --&gt; enable by pressing <code>esc</code><br /> <code>edit mode</code> --&gt; enable by pressing <code>enter</code></p>
 <p>Useful shortcuts:</p>
 <table>
 <thead>
@@ -306,53 +290,55 @@ import pandas as pd  # Third-party</code></pre>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>X</code>: cut selected cell</td>
+<td style="text-align: left;">.</td>
 </tr>
 </tbody>
 </table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><code>both modes</code></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><code>Shift-Enter</code> : run cell, select below</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>Ctrl-Enter</code> : run cell</td>
-</tr>
-</tbody>
-</table>
-</section><section id="new-slide" class="slide level2">
-<h1>new slide:</h1>
-<p>&lt;!--</p>
-<p>How to turn this markdown file into a presentation:</p>
-<p>pandoc -s --mathjax --slide-level 2 -t revealjs --highlight-style=zenburn presentation.md -V theme=solarized -o presentation.html</p>
-<p>pandoc --slide-level 2 --toc --toc-depth=1 -t beamer presentation.md -V theme:Montpellier -o presentation.pdf</p>
-<p>new slide:</p>
 </section><section class="slide level2">
 
-<p>--&gt;</p>
+<ul>
+<li><p>In <code>both modes</code></p>
+<ul>
+<li><code>Shift-Enter</code> : run cell, select below</li>
+<li><code>Ctrl-Enter</code> : run cell</li>
+</ul></li>
+</ul>
+<!--
+
+
+How to turn this markdown file into a presentation:
+
+pandoc -s --mathjax --slide-level 2  -t revealjs --highlight-style=zenburn presentation.md -V theme=solarized -o presentation.html 
+
+pandoc --slide-level 2 --toc --toc-depth=1 -t beamer presentation.md -V theme:Montpellier -o presentation.pdf
+
+
+
+
+new slide:
+
+------------
+
+
+-->
+
+
 </section></section>
     </div>
   </div>
 
-
   <script src="reveal.js/lib/js/head.min.js"></script>
-  <script src="reveal.js/js/reveal.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
 
   <script>
 
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        controls: true,         // Display controls in the bottom right corner
-        progress: true,         // Display a presentation progress bar
-        history: true,          // Push each slide change to the browser history
-        center: true,                       // Vertical centering of slides
-        maxScale: 1.5,                  // Bounds for smallest/largest possible content scale
-        slideNumber: false,                // Display the page number of the current slide
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
         theme: 'solarized', // available themes are in /css/theme
         transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
@@ -365,5 +351,5 @@ import pandas as pd  # Third-party</code></pre>
 //          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 ]});
     </script>
-    </body>
+  </body>
 </html>

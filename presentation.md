@@ -298,22 +298,27 @@ Two modes:
 
 Useful shortcuts:
 
-|  `command mode` |`edit mode` 	
-|---	|---	
-|  `Y` : cell to code	|  `Tab` : code completion or indent
-| `M` : cell to markdown  |   `Shift-Tab` : tooltip
-| `A` : insert cell above  	|   	`Ctrl-A` : select all
-| `B` : insert cell below  	|   `Ctrl-Z` : undo
-| `X`: cut selected cell |   
 
 
-|  `both modes` |	
-|---	
-|  `Shift-Enter` : run cell, select below
-| `Ctrl-Enter` : run cell 
 
-new slide:
-------------
+`command mode` |`edit mode` 	
+---	| ---	
+`Y` : cell to code	|  `Tab` : code completion or indent
+`M` : cell to markdown  |   `Shift-Tab` : tooltip
+`A` : insert cell above  	|   	`Ctrl-A` : select all
+`B` : insert cell below  	|   `Ctrl-Z` : undo
+`X`: cut selected cell | .
+
+
+-----------
+
+
+
+* In `both modes`
+
+    * `Shift-Enter` : run cell, select below
+    * `Ctrl-Enter` : run cell 
+
 <!--
 
 
