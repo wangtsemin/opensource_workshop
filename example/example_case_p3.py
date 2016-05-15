@@ -2,8 +2,7 @@
 # coding: utf-8
 
 # **By:** Ties de Kok and Jan Boone  
-# **Python version:** 2.7 but will also work with 3.5 (see notes)  
-# See `example_case_p3` on GitHub for a version that works on Python 3.5
+# **Python version:** 2.7 but will also work with 3.5 (see notes)
 
 # # example: process files
 
@@ -36,7 +35,7 @@ import os, re, time, shutil, pickle, collections
 
 # In[2]:
 
-import urllib2
+import urllib
 
 
 # **Note: ** For Python 3 we need import `urllib` instead of `urllib2`
@@ -300,12 +299,12 @@ ssrn_ID['SSRN-id2610429.pdf']
 # Every item in a dictionary consists of two components: `key`, `value`.  
 # To deal with this we define two variables (`k, v`) in the loop statement.  
 # 
-# **Note:** In Python 2.7 we have to use `.iteritems()` in Python 3 this has been simplified to `.iteritems()`
+# **Note:** In Python 2.7 we have to use `.items()` in Python 3 this has been simplified to `.items()`
 
 # In[30]:
 
 ssrn_url = {}
-for k, v in ssrn_ID.iteritems():
+for k, v in ssrn_ID.items():
     url = 'http://papers.ssrn.com/sol3/papers.cfm?abstract_id=%s' % v
     ssrn_url[k] = url
 
@@ -322,9 +321,10 @@ ssrn_url['SSRN-id2610429.pdf']
 
 # We will open a webpage and retrieve the HTML source using the build-in `urllib2` module. 
 
-# In[32]:
+# In[34]:
 
-html_text = urllib2.urlopen(ssrn_url['SSRN-id2610429.pdf']).read()
+url = ssrn_url['SSRN-id2610429.pdf']
+html_text = urllib.request.urlopen(url).read().decode('utf-8')
 
 
 # **Note 1: the urllib library has been substantialy changed in Python 3:**  
@@ -353,17 +353,17 @@ html_text = urllib2.urlopen(ssrn_url['SSRN-id2610429.pdf']).read()
 # 
 # This makes it easy to extract the content using Regular Expressions!
 
-# In[33]:
+# In[35]:
 
 re.findall(r'<meta name="citation_author" content="(.*)">', html_text)[0]
 
 
-# In[34]:
+# In[36]:
 
 re.findall(r'<meta name="citation_title" content="(.*)">', html_text)[0]
 
 
-# In[35]:
+# In[37]:
 
 re.findall(r'<meta name="citation_online_date" content="(.*)">', html_text)[0]
 
@@ -373,7 +373,7 @@ re.findall(r'<meta name="citation_online_date" content="(.*)">', html_text)[0]
 # Writing a loop that contains all these `re.findall()` statements gets messy really fast.  
 # A better solution is to write a function and call the function in the loop.
 
-# In[36]:
+# In[38]:
 
 def unpack_list(list_in, authors=False):
     if len(list_in) == 0: # Check whether the list is empty
@@ -387,10 +387,10 @@ def unpack_list(list_in, authors=False):
 # Calling an index on a list (e.g. `list[0]`) will return an error if the list is empty.  
 # This function above deals with this problem by including several conditions.
 
-# In[37]:
+# In[39]:
 
 def extract_info(url):
-    html_text = urllib2.urlopen(url).read()
+    html_text = urllib.request.urlopen(url).read().decode('utf-8')
     authors = unpack_list(re.findall(r'<meta name="citation_author" content="(.*)">', html_text), authors=True)
     title = unpack_list(re.findall(r'<meta name="citation_title" content="(.*)">', html_text))
     date = unpack_list(re.findall(r'<meta name="citation_online_date" content="(.*)">', html_text))
@@ -405,7 +405,7 @@ def extract_info(url):
 # We can call this function with any URL and it will return a `tuple` with the information.  
 # A `tuple` is similar to a `list` but it is not mutable. 
 
-# In[41]:
+# In[40]:
 
 extract_info(ssrn_url['SSRN-id2610429.pdf'])
 
@@ -420,12 +420,12 @@ extract_info(ssrn_url['SSRN-id2610429.pdf'])
 # 1. We use `try` and `except` to catch any errors when SSRN blocks the connection.
 # 2. If it fails we use `time.sleep(5)` so that Python will wait for 5 seconds.  
 # 
-# **Note: use `.iteritems()` instead of `.iteritems()` if you use Python 3**
+# **Note: use `.items()` instead of `.items()` if you use Python 3**
 
-# In[42]:
+# In[41]:
 
-ssrn_details = {k : None for k, v in ssrn_url.iteritems()}
-for k, v in ssrn_url.iteritems():
+ssrn_details = {k : None for k, v in ssrn_url.items()}
+for k, v in ssrn_url.items():
     while ssrn_details[k] == None:
         try:
             ssrn_details[k] = extract_info(v)
@@ -447,7 +447,7 @@ for k, v in ssrn_url.iteritems():
 # pickle.dump(ssrn_details, open("ssrn_backup.p", "wb"))
 # ```
 
-# In[43]:
+# In[42]:
 
 ssrn_details['SSRN-id1786360.pdf']
 
@@ -458,15 +458,15 @@ ssrn_details['SSRN-id1786360.pdf']
 
 # It might happen that an ID is not found by SSRN, we would like to remove these.  
 
-# In[44]:
+# In[43]:
 
 ssrn_details_v2 = {}
-for k, v in ssrn_details.iteritems():
+for k, v in ssrn_details.items():
     if v[0] != '' and v[1] != '':
         ssrn_details_v2[k] = v
 
 
-# In[45]:
+# In[44]:
 
 len(ssrn_details.keys()) - len(ssrn_details_v2.keys())
 
@@ -476,23 +476,23 @@ len(ssrn_details.keys()) - len(ssrn_details_v2.keys())
 # The `if` statements above are not very descriptive because we use the tuple index.  
 # A better approach is to use a `namedtuple()` from the `collections` module.
 
-# In[46]:
+# In[45]:
 
 ssrn_details_named = {}
-for k, v in ssrn_details.iteritems():
+for k, v in ssrn_details.items():
     named_tuple = collections.namedtuple('tuple', 'title authors date')
     ssrn_details_named[k] = named_tuple(*v)
 
 
-# In[47]:
+# In[46]:
 
 ssrn_details_named['SSRN-id1786360.pdf'].title
 
 
-# In[48]:
+# In[47]:
 
 ssrn_details_v3 = {}
-for k, v in ssrn_details_named.iteritems():
+for k, v in ssrn_details_named.items():
     if v.title != '' and v.authors != '':
         ssrn_details_v3[k] = v
 
@@ -506,15 +506,15 @@ for k, v in ssrn_details_named.iteritems():
 # Let's make the filename more descriptive of the working paper by changing it to:  
 # `names (year)`
 
-# In[49]:
+# In[48]:
 
 ssrn_names = {}
-for k, v in ssrn_details_v2.iteritems():
+for k, v in ssrn_details_v2.items():
     name = ', '.join([re.findall('^(.*),', name)[0].strip() for name in v[1]]) + ' (' + v[2][:4] + ').pdf'
     ssrn_names[k] = name
 
 
-# In[50]:
+# In[49]:
 
 ssrn_names['SSRN-id1786360.pdf']
 
@@ -523,22 +523,22 @@ ssrn_names['SSRN-id1786360.pdf']
 
 # We can perform 'file explorer' tasks using the build-in `shutil` module.
 
-# In[51]:
+# In[50]:
 
 cat_folder = r'SSRN'
 
 
 # In case the folder does not exist --> make it:
 
-# In[52]:
+# In[51]:
 
 if not os.path.exists(cat_folder):
     os.makedirs(cat_folder)
 
 
-# In[53]:
+# In[52]:
 
-for k, v in ssrn_names.iteritems():
+for k, v in ssrn_names.items():
     current = os.path.join(downloads_path, k)
     destination = os.path.join(cat_folder, v)
     try:
@@ -558,24 +558,24 @@ for k, v in ssrn_names.iteritems():
 
 # First we convert the `ssrn_names` dictionary into a Pandas dataframe.
 
-# In[54]:
+# In[53]:
 
 ssrn_dataframe = pd.DataFrame.from_dict(ssrn_names, orient='index')
 
 
-# In[55]:
+# In[54]:
 
 ssrn_dataframe.columns = ['new_name']
 
 
-# In[56]:
+# In[55]:
 
 ssrn_dataframe.head()
 
 
 # Next we add the details from `ssrn_ctime`, `ssrn_url`, and `ssrn_details_v2`
 
-# In[57]:
+# In[56]:
 
 ssrn_dataframe['ctime'] = [time.ctime(ssrn_ctime[i]) for i in ssrn_dataframe.index]
 ssrn_dataframe['title'] = [ssrn_details_v2[i][0] for i in ssrn_dataframe.index]
@@ -584,7 +584,7 @@ ssrn_dataframe['ssrn_date'] = [ssrn_details_v2[i][2] for i in ssrn_dataframe.ind
 ssrn_dataframe['url'] = [ssrn_url[i] for i in ssrn_dataframe.index]
 
 
-# In[58]:
+# In[57]:
 
 ssrn_dataframe.head()
 
@@ -595,7 +595,7 @@ ssrn_dataframe.head()
 # **Note:** One of the major improvements of Python 3 is improved support for unicode.  
 # Python 2.7 often gives errors that relate to encoding, these can be very annoying to solve.
 
-# In[59]:
+# In[58]:
 
 ssrn_dataframe.to_csv('ssrn_index.csv')
 
