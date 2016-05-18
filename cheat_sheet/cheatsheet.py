@@ -3,7 +3,7 @@
 
 # ## Variables
 
-# In[1]:
+# In[20]:
 
 a = 5
 b = 'A string'
@@ -11,19 +11,19 @@ b = 'A string'
 
 # ## Numbers
 
-# In[2]:
+# In[21]:
 
 2+2
 
 
-# In[3]:
+# In[22]:
 
 3 / 4
 
 
 # *Note:* in Python 2.7 you need to do:
 
-# In[4]:
+# In[23]:
 
 3 / float(4)
 
@@ -32,7 +32,7 @@ b = 'A string'
 
 # Specify with single, double or tipple quotes
 
-# In[5]:
+# In[24]:
 
 hello = 'world'
 saying = 'hello world'
@@ -43,24 +43,41 @@ a paragraph
 
 # ### Variables in strings
 
-# In[6]:
+# In[25]:
 
 '%d' % 20
 
 
-# In[7]:
+# In[26]:
 
 '%.3f %.2f' % (20, 1/3)
+
+
+# *Note:* An alternative is to use `.format()`
+
+# In[27]:
+
+'{:.3f} {:.2f}'.format(20, 1/3)
 
 
 # ## Lists, tuples and dictionaries
 
 # ### Lists
 
-# In[8]:
+# In[28]:
 
 pets = ['dogs', 'cat', 'bird']
 pets.append('lizard')
+pets
+
+
+# ### Tuple
+
+# *Note:* You cannot add or remove elements from a tuple
+
+# In[29]:
+
+pets = ('dogs', 'cat', 'bird')
 pets
 
 
@@ -68,17 +85,25 @@ pets
 
 # Unordered key, value pairs
 
-# In[9]:
+# In[30]:
 
 person = {'name': 'fred', 'age': 29}
 person['age']
 
 
-# In[10]:
+# In[31]:
 
 person['money'] = 50
 del person['age']
 person
+
+
+# ### Combinations
+
+# In[32]:
+
+mix = {'fruit' : [('apple', 'orange'), ('banana', 'pear')]}
+mix['fruit'][0][1]
 
 
 # ## Slicing
@@ -86,29 +111,31 @@ person
 # If an object is ordered (such as a list) you can select on index  
 # pets = ['dogs', 'cat', 'bird', 'lizzard']
 
-# In[11]:
+# In[33]:
 
 favorite_pet = pets[0]
 favorite_pet
 
 
-# In[12]:
+# In[34]:
 
 reptile = pets[-1]
 reptile
 
 
-# In[13]:
+# In[35]:
 
 pets[1:3]
 
 
-# In[14]:
+# In[36]:
 
 pets[:2]
 
 
-# In[15]:
+# *Note:* this also works on strings:
+
+# In[37]:
 
 fruit = 'banana'
 fruit[:2]
@@ -116,48 +143,56 @@ fruit[:2]
 
 # ## Functions
 
-# In[16]:
+# In[38]:
 
 def add_5(number):
     return number + 5
 
+
+# *Note:* the action of defining a function does not execute the code!  
+# The code wil execute once you call the function:
+
+# In[39]:
+
 add_5(10)
 
 
-# In[17]:
+# *Note:* You can add default values:
+
+# In[40]:
 
 def add(number, add=5):
     return number + add
 
 
-# In[18]:
+# In[41]:
 
 add(10)
 
 
-# In[19]:
+# In[42]:
 
 add(10, add=3)
 
 
 # ## Display something
 
-# In[20]:
+# In[43]:
 
 print('Hello')
 
 
-# In[21]:
+# In[44]:
 
 print('Hello ' + 'World')
 
 
-# In[22]:
+# In[45]:
 
 print('I have', 2, 'apples')
 
 
-# In[23]:
+# In[46]:
 
 apples = 5
 print('I have', apples, 'apples')
@@ -165,9 +200,10 @@ print('I have', apples, 'apples')
 
 # ## Whitespace (blocks)
 
-# Indentations are required by Python to sub-set blocks of code
+# Indentations are required by Python to sub-set blocks of code.  
+# *Note:* these subsets have their own local scope, notice variable `a`:
 
-# In[24]:
+# In[47]:
 
 def example():
     a = 'Layer 1'
@@ -180,14 +216,14 @@ def example():
     layer_2()
 
 
-# In[25]:
+# In[48]:
 
 example()
 
 
 # ## Conditionals
 
-# In[26]:
+# In[49]:
 
 grade = 95
 if grade > 90:
@@ -200,7 +236,7 @@ else:
 
 # ## Looping
 
-# In[27]:
+# In[50]:
 
 count = 0
 while count < 4:
@@ -208,20 +244,20 @@ while count < 4:
     count += 1
 
 
-# In[28]:
+# In[51]:
 
 for num in range(0, 6, 2):
     print(num)
 
 
-# In[29]:
+# In[52]:
 
 list_fruit = ['Apple', 'Banana', 'Orange']
 for fruit in list_fruit:
     print(fruit)
 
 
-# In[30]:
+# In[53]:
 
 for num in range(100):
     print(num)
@@ -229,19 +265,68 @@ for num in range(100):
         break
 
 
+# Looping over a dictionary  
+# *Note:* if using Python 2.7 you need to use `.iteritems()`
+
+# In[54]:
+
+dictionary = {'one' : 1, 'two' : 2, 'three' : 3}
+for k, v in dictionary.items():
+    print(k, v + 10)
+
+
+# ## Comprehensions:
+
+# A comprehension makes it easier to generate a list or dictionary using a loop.  
+# *List comprehension:*
+
+# In[55]:
+
+new_list = [(x + 5) / 2 for x in range(0,6)]
+new_list
+
+
+# *Traditional way:*
+
+# In[56]:
+
+new_list = []
+for x in range(0,6):
+    new_list.append((x + 5) / 2)
+new_list
+
+
+# *Dictionary comprehension:*
+
+# In[57]:
+
+new_dict = {x : (x + 5) / 2 for x in range(0,6)}
+new_dict
+
+
+# *Traditional way:*
+
+# In[58]:
+
+new_dict = {}
+for x in range(0,6):
+    new_dict[x] = (x + 5) / 2
+new_dict
+
+
 # ## Catching Exceptions
 
-# In[31]:
+# In[59]:
 
 num_list = [1, 2, 3]
 
 
-# In[32]:
+# In[62]:
 
 num_list.remove(4)
 
 
-# In[33]:
+# In[63]:
 
 num_list = [1, 2, 3]
 try:
@@ -257,19 +342,19 @@ finally:
 
 # ## Importing Libraries
 
-# In[34]:
+# In[64]:
 
 import math
 math.sin(1)
 
 
-# In[35]:
+# In[65]:
 
 import math as math_lib
 math_lib.sin(1)
 
 
-# In[36]:
+# In[66]:
 
 from math import sin
 sin(1)
@@ -277,28 +362,28 @@ sin(1)
 
 # ## OS operations
 
-# In[37]:
+# In[67]:
 
 import os
 
 
 # ### Get current working directory
 
-# In[38]:
+# In[68]:
 
 os.getcwd()
 
 
 # ### List files/folders in directory
 
-# In[39]:
+# In[69]:
 
 os.listdir()
 
 
 # ### Change working directory
 
-# In[40]:
+# In[70]:
 
 os.chdir(r'C:\Stack\Work\Workshops\python_workshop\opensource_workshop\cheat_sheet')
 
@@ -315,35 +400,35 @@ os.chdir(r'C:\Stack\Work\Workshops\python_workshop\opensource_workshop\cheat_she
 # `a+` -> read and write + append at the bottom
 # 
 
-# In[41]:
+# In[71]:
 
 with open('new_file.txt', 'w') as file:
     file.write('Content of new file. \nHi there!')
 
 
-# In[42]:
+# In[72]:
 
 with open('new_file.txt', 'r') as file:
     file_content = file.read()
 
 
-# In[43]:
+# In[73]:
 
 file_content
 
 
-# In[44]:
+# In[74]:
 
 print(file_content)
 
 
-# In[45]:
+# In[75]:
 
 with open('new_file.txt', 'a+') as file:
     file.write('\n' + 'New line')
 
 
-# In[46]:
+# In[76]:
 
 with open('new_file.txt', 'r') as file:
     print(file.read())
